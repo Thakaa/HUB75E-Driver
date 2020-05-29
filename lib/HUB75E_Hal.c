@@ -98,20 +98,20 @@ void HUB75E_setPin(HUB75EPin p, int state) {
 	 	 case PinRed1:
 	 		HAL_GPIO_WritePin(LED_MATRIX_R1_GPIO_Port, LED_MATRIX_R1_Pin, state);
 	 		 break;
-	 	case PinBlue1:
-	 		HAL_GPIO_WritePin(LED_MATRIX_B1_GPIO_Port, LED_MATRIX_B1_Pin, state);
+	 	case PinRed2:
+	 		HAL_GPIO_WritePin(LED_MATRIX_R2_GPIO_Port, LED_MATRIX_R2_Pin, state);
 	 		break;
 	 	case PinGreen1:
 	 		HAL_GPIO_WritePin(LED_MATRIX_G1_GPIO_Port, LED_MATRIX_G1_Pin, state);
 	 		break;
-	 	case PinRed2:
-	 		HAL_GPIO_WritePin(LED_MATRIX_R2_GPIO_Port, LED_MATRIX_R2_Pin, state);
+	 	case PinGreen2:
+	 		HAL_GPIO_WritePin(LED_MATRIX_G2_GPIO_Port, LED_MATRIX_G2_Pin, state);
+	 		break;
+	 	case PinBlue1:
+	 		HAL_GPIO_WritePin(LED_MATRIX_B1_GPIO_Port, LED_MATRIX_B1_Pin, state);
 	 		break;
 	 	case PinBlue2:
 	 		HAL_GPIO_WritePin(LED_MATRIX_B2_GPIO_Port, LED_MATRIX_B2_Pin, state);
-	 		break;
-	 	case PinGreen2:
-	 		HAL_GPIO_WritePin(LED_MATRIX_G2_GPIO_Port, LED_MATRIX_G2_Pin, state);
 	 		break;
 	 	case PinADDRA:
 	 		HAL_GPIO_WritePin(LED_MATRIX_ADDRESS_LINE_A_GPIO_Port, LED_MATRIX_ADDRESS_LINE_A_Pin, state);
