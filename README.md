@@ -1,5 +1,5 @@
 # HUB75E-Driver
-HUB75E Driver for STM32 Microcontrollers
+HUB75E RGB LED Matrix Panel Driver. To port, provide GPIO HAL in HUB75E_Hal.c. Current implementaion is with STM32F205 HAL
 
 ```C
 int main(void) {
