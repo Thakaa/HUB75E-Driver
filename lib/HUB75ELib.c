@@ -81,6 +81,13 @@ void HUB75E_DisplayOFF() {
 	HUB75E_setPin(PinOE, 1); //Setting OE high for turning off all LEDs
 }
 
+/*Set the addressing mode
+ *
+ */
+void HUB75E_setAddressingMode(HUB75EAddressingMode addrMode) {
+	addressingMode = addrMode;
+}
+
 /*Keep this running in your thread loop to get the display up running
  *
  */
