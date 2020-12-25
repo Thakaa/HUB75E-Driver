@@ -13,6 +13,7 @@
 unsigned char graphicsBuffer[PIXELS_COUNT_IN_BYTES] = {0};
 HUB75EDisplayBrightnessLevel brightness;
 HUB75EDisplayColor displayColor;
+HUB75EAddressingMode addressingMode;
 
 /*Initialize LED Matrix screen
  *
@@ -157,12 +158,33 @@ void HUB75E_displayBufferPixels() {
 			lower_pixel_pointer++;
 		}
 
-		//Setting the row address (0 to 31)
-		HUB75E_setPin(PinADDRA, (row & ( 1 << 0 )) >> 0);
-		HUB75E_setPin(PinADDRB, (row & ( 1 << 1 )) >> 1);
-		HUB75E_setPin(PinADDRC, (row & ( 1 << 2 )) >> 2);
-		HUB75E_setPin(PinADDRD, (row & ( 1 << 3 )) >> 3);
-		HUB75E_setPin(PinADDRE, (row & ( 1 << 4 )) >> 4);
+		switch (addressingMode)
+		{
+			case HUB75EAddressingModeABCDE:
+				//Setting the row address (0 to 31)
+				HUB75E_setPin(PinADDRA, (row & ( 1 << 0 )) >> 0);
+				HUB75E_setPin(PinADDRB, (row & ( 1 << 1 )) >> 1);
+				HUB75E_setPin(PinADDRC, (row & ( 1 << 2 )) >> 2);
+				HUB75E_setPin(PinADDRD, (row & ( 1 << 3 )) >> 3);
+				HUB75E_setPin(PinADDRE, (row & ( 1 << 4 )) >> 4);
+				break;
+			case HUB75EAddressingModeAC:
+				if(row == 0) {
+					HUB75E_setPin(PinADDRC, 1); //1 for Zeroth row 0 otherwise
+				}
+				else
+				{
+					HUB75E_setPin(PinADDRC, 0);
+				}
+
+				//Clocking
+				HUB75E_setPin(PinADDRA, 1);
+				HUB75E_DelayUs(1);
+				HUB75E_setPin(PinADDRA, 0);
+				break;
+			default:
+				break;
+		}
 
 		//Latch falling edge for data transfer to output drivers
 		HUB75E_setPin(PinLATCH, 1);
