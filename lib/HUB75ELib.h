@@ -43,3 +43,4 @@ void HUB75E_DisplayOFF();
 void HUB75E_displayBufferPixels();
 void HUB75E_setDisplayBrightness(HUB75EDisplayBrightnessLevel b);
 void HUB75E_setDisplayColor(HUB75EDisplayColor c);
+void HUB75E_setAddressingMode(HUB75EAddressingMode addrMode);
