@@ -8,6 +8,7 @@ int main(void) {
 	HUB75E_setDisplayBuffer(myBitmap); //Each bit represent each pixels. 1 Byte contains 8 pixels 
 	HUB75E_setDisplayBrightness(BrightnessLevel1);
 	HUB75E_setDisplayColor(Blue);
+	HUB75E_setAddressingMode(HUB75EAddressingModeABCDE);
 	while(1) {
  	   HUB75E_displayBufferPixels();
         }
