@@ -31,6 +31,11 @@ typedef enum {
 	BrightnessLevel5
 }HUB75EDisplayBrightnessLevel;
 
+typedef enum {
+	HUB75EAddressingModeABCDE,
+	HUB75EAddressingModeAC
+}HUB75EAddressingMode;
+
 void HUB75E_Init (void);
 void HUB75E_clearDisplayBuffer();
 void HUB75E_setDisplayBuffer(unsigned char pixels[]);
